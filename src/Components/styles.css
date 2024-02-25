@@ -1,0 +1,26 @@
+.left-side-btn {
+    display: grid;
+    grid-template-columns: 20% 75%;
+    justify-content: space-around;
+    padding: 6px;
+    margin: 3px 0px;
+    background-color: #f6f7f9;
+    border: none;
+}
+
+.left-side {
+    width: 20%;
+    background-color: #f6f7f9;
+    height: 100vh;
+}
+
+.leftSideCategory-parent {
+    display: grid;
+    justify-content: left;
+    align-self: center;
+}
+
+.category-heading {
+    margin: 0%;
+    font-size: 23px
+}

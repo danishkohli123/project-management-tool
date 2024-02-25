@@ -1,0 +1,15 @@
+
+import './style.css'
+export default function InputBox(props) {
+
+    const {onChange} = props 
+    const {css} = props
+
+    return (
+        <input
+            className={css}
+            type="text"
+            onChange={() => onChange()}
+        />
+    )
+}
