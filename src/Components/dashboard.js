@@ -1,8 +1,9 @@
-import { FaArrowRight, FaCalendarDay, FaCheck, FaClock, FaHome, FaSquarespace } from "react-icons/fa";
+import { FaArrowRight, FaCheck,FaHome} from "react-icons/fa";
 import './style.css';
 import './styles.css';
 import CeremonyPlanning from "./ceremonyPlanning";
 import { useEffect } from "react";
+import DashboardSeconPart from "./dashboadSecondPart";
 
 function Dashboard() {
 
@@ -41,9 +42,8 @@ function Dashboard() {
         const percentGraph = document.getElementById("percentGraph");
         percentGraph.style.opacity = 1;
     }
-
-    useEffect(() => {
-        const percentInput = document.getElementById("percentInput");
+    const  resetCircle = () => {
+    const percentInput = document.getElementById("percentInput");
         if (percentInput) {
             console.log(percentInput);
             let fnValue = localStorage.getItem("focusFactorValue");
@@ -54,8 +54,30 @@ function Dashboard() {
                 generateFocusFactorGraph(percent);
             }
         }
-    }, [])
-
+    }
+    const retriveMainName = ()=>{
+    // Retrieve team name from local storage
+  let storedTeamName = localStorage.getItem("TeamName");
+  // Check if a team name is stored
+  if (storedTeamName) {
+    // Set the inner HTML of the element with id "team-main-name" to the retrieved team name
+    if (document.getElementById("team-main-name")) {
+      document.getElementById("team-main-name").innerHTML = storedTeamName;
+    }
+    if (document.getElementById("mainNameInput")) {
+      document.getElementById("mainNameInput").value = storedTeamName;
+    }
+  }
+}
+    useEffect(() => {
+        resetCircle();
+        retriveMainName();
+    })
+    const teamName =()=> {
+        let teamName = document.getElementById("mainNameInput").value;
+        document.getElementById("team-main-name").innerHTML = teamName;
+        localStorage.setItem("TeamName", teamName);
+      }
     return (
         <div style={{ display: 'grid', gridTemplateColumns: '2% 98%' }}>
             <div></div>
@@ -65,7 +87,7 @@ function Dashboard() {
                     <div className="info-outer-div">
                         <div className="for-info-flex-secondpart">
                             <div>
-                                <h5 style={{ width: "145px" }} className="sprint-name">
+                                <h5 style={{ width: "147px" }} className="sprint-name">
                                     Team |
                                     <span id="team-main-name" style={{ marginLeft: "4px" }}>
                                         Infogen + FA
@@ -106,7 +128,7 @@ function Dashboard() {
                                                     id="mainNameInput"
                                                     className="main-name-Input"
                                                     type="text"
-                                                    onchange="teamName()"
+                                                    onChange={()=>teamName()}
                                                 />
                                             </div>
 
@@ -155,122 +177,7 @@ function Dashboard() {
                         </div>
                     </div>
                     <div className="info-outer-div" style={{ backgroundColor: "white" }}>
-                        <div className="for-info-flex-secondpart">
-                            <div>
-                                <h5 className="sprint-name">Current Sprint</h5>
-                            </div>
-                            <div>
-                                <div className="dropdown" id="customDropdown">
-                                    <button
-                                        className="sprint-name-button"
-                                        onclick="toggleOptions()"
-                                    >
-                                        Your Sprint
-                                    </button>
-                                    <ul className="dropdown-list" id="dropdownOptions"></ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="all-info-division all-info-division2">
-                            <div
-                                className="for-info-flex"
-                                style={{ backgroundColor: "transparent" }}
-                            >
-                                <div className="inside-info inside-info1">
-                                    <FaSquarespace className="icon-data" style={{ backgroundColor: "#ba61fd" }} />
-                                    <div
-                                        style={{
-                                            backgroundColor: "transparent",
-                                            padding: "0px",
-                                            display: "grid",
-                                            gridTemplateColumns: "67% 30%",
-                                        }}
-                                    >
-                                        <h3 className="h3-sprint-data h3-sprint-data1">
-                                            Sprint Name:
-                                        </h3>
-                                        <input
-                                            type="text"
-                                            id="selectedOption"
-                                            onfocusout="sprintNameFocusOutListener()"
-                                        />
-                                    </div>
-                                    <div style={{ height: "15px" }}>
-                                        <h3
-                                            className="h3-sprint-data"
-                                            style={{
-                                                marginTop: "-13px",
-                                                marginRight: "21px",
-                                                marginLeft: "-11px;",
-                                            }}
-                                        >
-                                            Sprint Duration(Weeks):
-                                        </h3>
-                                        <input
-                                            type="number"
-                                            id="selectWeek"
-                                            onchange="workWeek()"
-                                            style={{
-                                                width: "6%",
-                                                marginLeft: "189px",
-                                                margin: "top",
-                                                backgroundColor: "transparent",
-                                                border: "none",
-                                                borderRadius: "5px",
-                                                fontFamily: "fantasy",
-                                                fontSize: "18px",
-                                                position: "relative",
-                                                top: "-20px",
-                                                height: "21px",
-                                            }}
-                                        />
-                                    </div>
-                                </div>
-                                <div className="inside-info">
-                                    <FaCalendarDay className="icon-data" style={{ backgroundColor: "#feb72e" }} />
-                                    <div
-                                        style={{
-                                            backgroundColor: "transparent",
-                                            padding: "0px",
-                                            display: "grid",
-                                            gridTemplateColumns: "64% 36%",
-                                        }}
-                                    >
-                                        <h3 className="h3-sprint-data h3-sprint-data2">
-                                            Start Date :
-                                        </h3>
-                                        <span id="start-date-op"></span>
-                                    </div>
-                                    <div
-                                        style={{
-                                            backgroundColor: "transparent",
-                                            padding: "0px",
-                                            display: "grid",
-                                            gridTemplateColumns: "64% 36%",
-                                        }}
-                                    >
-                                        <h3 className="h3-sprint-data h3-sprint-data2">
-                                            End Date :
-                                        </h3>
-                                        <span id="end-date-op"></span>
-                                    </div>
-                                </div>
-                                <div className="inside-info">
-                                    <FaClock className="icon-data" style={{ backgroundColor: "#1ed98c" }} />
-                                    <div
-                                        style={{ display: "grid", gridTemplateColumns: "91% 10%" }}
-                                    >
-                                        <h3 className="h3-sprint-data">Working Hours/Day:</h3>
-                                        <input
-                                            id="workingHour"
-                                            className="working-Input"
-                                            type="number"
-                                            onchange="hoursWorked()"
-                                        />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                            <DashboardSeconPart/>
                     </div>
                 </div>
                 <CeremonyPlanning />

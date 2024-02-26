@@ -1,49 +1,14 @@
+import AllocationInput from "./allocationInput";
+import HolidayInput from "./holidayInput";
 import LastButtons from "./lastButtons";
 function Holiday(){
 
   return (
     <div className="main-content">
       <div className="teamMember-and-holiday">
-        <div style={{ marginTop: '40px' }}>
-          <div className="team-members-data-input">
-            <input
-              type="text"
-              id="name"
-              placeholder="Employee Name"
-            />
-            <input
-              type="text"
-              id="role"
-              placeholder="Employee Role"
-            />
-            <input
-              type="number"
-              id="allocationPercentage"
-              placeholder="Allocation%"
-            />
-          </div>
-          <div className="team-member-allocation-div">
-            <table id="allocationTable"></table>
-          </div>
-        </div>
+        <AllocationInput/>
  
-        <div className="holiday-list-div">
-          <div className="holiday-input-div">
-            <input
-              id="holiday-date"
-              className="info-input holiday-date-input"
-              type="date"
-            />
-            <input
-              id="occasion"
-              placeholder="Enter Occasion"
-              className="info-input holiday-occasion-input"
-              type="text"
-              style={{ width: '120px' }}
-            />
-          </div>
-          <div id="holiday-table-container"></div>
-        </div>
+        <HolidayInput/>
       </div>
  
       <dialog id="popUp">
