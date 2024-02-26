@@ -16,7 +16,7 @@ function LeftSide() {
                     onClick={() => navigate("/")}
                 // onclick="navigateTo('index.html')"
                 >
-                    <div style={{ fontSize: '37px' }}>
+                    <div style={{ fontSize: '33px' }}>
                         <FaTable />
                     </div>
                     <div className='leftSideCategory-parent'>
@@ -28,7 +28,7 @@ function LeftSide() {
                     onClick={() => navigate("holiday")}
                 //  onclick="openHolidayList()"
                 >
-                    <div style={{ fontSize: '37px' }}>
+                    <div style={{ fontSize: '33px' }}>
                         <FaCalendarDay />
                     </div>
                     <div className='leftSideCategory-parent'>
@@ -36,7 +36,7 @@ function LeftSide() {
                     </div>
                 </button>
                 <button className='left-side-btn' onClick={()=>navigate("sprintPlanning")}>
-                    <div style={{ fontSize: '37px' }}>
+                    <div style={{ fontSize: '33px' }}>
                         <FaCheckSquare />
                     </div>
                     <div className='leftSideCategory-parent'>
@@ -44,7 +44,7 @@ function LeftSide() {
                     </div>
                 </button>
                 <button className='left-side-btn' onClick={()=>navigate("sprintCapacity")} >
-                    <div style={{ fontSize: '37px' }}>
+                    <div style={{ fontSize: '33px' }}>
                         <FaList />
                     </div>
                     <div className='leftSideCategory-parent'>
@@ -52,7 +52,7 @@ function LeftSide() {
                     </div>
                 </button>
                 <button className='left-side-btn' onclick="openStatus()">
-                    <div style={{ fontSize: '37px' }}>
+                    <div style={{ fontSize: '33px' }}>
                         <FaChartPie />
                     </div>
                     <div className='leftSideCategory-parent'>

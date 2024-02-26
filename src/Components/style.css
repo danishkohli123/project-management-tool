@@ -10,7 +10,6 @@ body {
  
   overflow-x: hidden;
   background-color: white;
-  /* background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpiGq3vqpDjxkHw4T-7fvemRbtU_HULUWy3w&usqp=CAU"); */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -1003,7 +1002,7 @@ button h4 {
   margin-right: 748px;
   margin-left: 5px;
   background-color: #3d95f2;
-  width: 30%;
+  width: 31%;
   padding: 7px;
   border-radius: 20px;
   color: white;
